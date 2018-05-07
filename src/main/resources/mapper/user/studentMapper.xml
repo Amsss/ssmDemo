@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.zhuzz.ssmDemo.mapper.user.StudentMapper">
+
+    <select id="findStudent" resultType="Student" parameterType="String">
+        select * from t_student where name = #{name}
+    </select>
+
+    <insert id="add" parameterType="Student">
+        INSERT into t_student VALUES (
+        #{id, jdbcType=NUMERIC},
+        #{name, jdbcType=VARCHAR},
+        #{age, jdbcType=NUMERIC},
+        )
+    </insert>
+
+</mapper>
