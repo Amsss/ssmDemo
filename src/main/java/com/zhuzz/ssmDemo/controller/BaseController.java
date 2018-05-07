@@ -27,7 +27,7 @@ public class BaseController {
         Student nacy = mapper.findStudent("nacy");
         System.out.println(nacy);
         Map<String, Object> map = new HashMap<String, Object>();
-        map.put("list", new String("1111"));
+        map.put("lista", new String("1111"));
         return map;
     }
 
