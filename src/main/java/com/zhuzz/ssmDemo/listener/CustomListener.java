@@ -11,7 +11,6 @@ import javax.servlet.annotation.WebListener;
  * @Create: 2018/5/7 18:26
  * @Modified By：
  */
-@Configuration
 @WebListener
 public class CustomListener implements ServletContextListener{
 

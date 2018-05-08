@@ -4,6 +4,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.Configuration;
 
+import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
@@ -19,14 +20,16 @@ import java.io.IOException;
  * @Create: 2018/5/7 18:35
  * @Modified By：
  */
-@Configuration
-@WebServlet(name = "MyServlet", urlPatterns = {"/myServlet"})
+@WebServlet(name = "MyServlet", urlPatterns = {"/myServlet"}, loadOnStartup = 1)
 public class MyServlet extends HttpServlet {
 
     private Logger logger = LoggerFactory.getLogger(this.getClass());
 
     @Override
-
+    public void init(ServletConfig config) throws ServletException {
+        System.out.println("servlet init ..");
+    }
+    @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         logger.info("doGet");
     }
@@ -34,9 +37,7 @@ public class MyServlet extends HttpServlet {
     @Override
 
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
         super.doPost(req, resp);
-
     }
 
     @Override
@@ -45,7 +46,6 @@ public class MyServlet extends HttpServlet {
     }
 
     @Override
-
     public String getServletInfo() {
         return "MyServlet";
     }

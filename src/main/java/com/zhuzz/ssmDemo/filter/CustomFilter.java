@@ -18,7 +18,6 @@ import javax.servlet.annotation.WebFilter;
  * @Create: 2018/5/7 18:11
  * @Modified By：
  */
-@Configuration
 @WebFilter(filterName="customFilter",urlPatterns="/*")
 @Order(value = 1)
 public class CustomFilter implements Filter{

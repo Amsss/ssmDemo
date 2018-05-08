@@ -3,10 +3,14 @@ package com.zhuzz.ssmDemo.controller;
 
 import com.zhuzz.ssmDemo.dto.user.Student;
 import com.zhuzz.ssmDemo.mapper.user.StudentMapper;
+import org.apache.catalina.Session;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.sql.*;
 import java.util.HashMap;
 import java.util.Map;
@@ -23,11 +27,13 @@ public class BaseController {
      * @Date: 18:04 2018/5/3
      */
     @RequestMapping(value = "find")
-    public Map<String, Object> xmlOrJson() {
-        Student nacy = mapper.findStudent("nacy");
+    public Map<String, Object> xmlOrJson(HttpServletRequest request, HttpServletResponse response) {
+        HttpSession session = request.getSession();//获取session
+        Student nacy = mapper.findStudent("nacy");//mybatis获取数据
         System.out.println(nacy);
         Map<String, Object> map = new HashMap<String, Object>();
         map.put("lista", new String("1111"));
+        session.invalidate();//session销毁
         return map;
     }
 

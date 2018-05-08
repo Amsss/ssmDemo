@@ -11,16 +11,19 @@ import org.springframework.boot.web.servlet.ServletComponentScan;
 import org.springframework.boot.web.servlet.ServletListenerRegistrationBean;
 import org.springframework.boot.web.servlet.ServletRegistrationBean;
 import org.springframework.context.annotation.Bean;
+import org.springframework.scheduling.annotation.EnableScheduling;
 
 @SpringBootApplication
-//@ServletComponentScan
+//开启计划任务的支持
+@EnableScheduling
+@ServletComponentScan
 public class SsmDemoApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(SsmDemoApplication.class, args);
     }
 
-    @Bean
+    /*@Bean
     public ServletRegistrationBean testServletRegistration() {
         ServletRegistrationBean registration = new ServletRegistrationBean(new TestServlet());
         registration.addUrlMappings("/hello");
@@ -38,5 +41,5 @@ public class SsmDemoApplication {
     public ServletListenerRegistrationBean<TestListener> testListenerRegistration(){
         ServletListenerRegistrationBean<TestListener> registration = new ServletListenerRegistrationBean<TestListener>(new TestListener());
         return registration;
-    }
+    }*/
 }

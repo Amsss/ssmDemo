@@ -1,5 +1,7 @@
 package com.zhuzz.ssmDemo.listener;
 
+import org.springframework.context.annotation.Configuration;
+
 import javax.servlet.annotation.WebListener;
 import javax.servlet.http.HttpSessionEvent;
 import javax.servlet.http.HttpSessionListener;
@@ -15,13 +17,10 @@ public class SessionListener implements HttpSessionListener{
     @Override
     public void sessionCreated(HttpSessionEvent session) {
         System.out.println("session创建成功......");
-
     }
 
     @Override
     public void sessionDestroyed(HttpSessionEvent session) {
         System.out.println("session销毁......");
-
     }
-
 }
